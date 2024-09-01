@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+/* 기본적인 스타일 초기화 */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #2E2E2E;
+    padding: 0 5px;
+}
+
+a:hover {
+    color: #81BEF7;
+}
+
+table {
+    border-collapse: collapse; /* border-collapse: 0을 border-collapse: collapse로 수정 */
+    border-spacing: 0;
+}
+
+body {
+    background-color: #f4f4f4; /* 전체 배경 색상 추가 */
+    color: #2E2E2E;
+    font-family: Malgun Gothic, '맑은 고딕', Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* 로그인 페이지 스타일 */
+#loginForm {
+    width: 90%;
+    max-width: 400px; /* 최대 폭을 설정 */
+    padding: 20px; /* 내부 여백 추가 */
+    background-color: #fff; /* 배경 색상 추가 */
+    border-radius: 8px; /* 둥근 모서리 추가 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    justify-content: center;
+	align-items: center;
+}
+
+/* 로그인 폼 스타일 */
+#wrap {
+    display: flex;
+    justify-content: center; /* 가로 방향 가운데 정렬 */
+    align-items: center; /* 세로 방향 가운데 정렬 */
+}
+
+#container {
+    width: 340px;
+    margin: 0 auto;
+}
+
+#container h1 {
+    text-align: center;
+}
+
+#inputForm {
+    border: 3px solid #81BEF7;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px; /* 둥근 모서리 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+}
+
+#inputForm label {
+    display: none;
+}
+
+#inputForm input {
+    margin-bottom: 15px;
+    border: 2px solid #007bff; /* 버튼과 일치하도록 테두리 색상 수정 */
+    width: calc(100% - 30px);
+    padding: 10px; /* 패딩 추가 */
+    font-size: 16px; /* 글자 크기 통일 */
+    border-radius: 5px; /* 둥근 모서리 설정 */
+}
+
+#inputForm button {
+    background-color: #007bff;
+    border: 2px solid #007bff; /* 버튼과 입력 필드의 테두리 색상 및 두께 통일 */
+    color: #fff;
+    width: calc(100% - 4px);
+    border-radius: 5px; /* 둥근 모서리 설정 */
+    font-size: 16px; /* 글자 크기 통일 */
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s; /* 배경 색상 전환 효과 */
+}
+
+#inputForm button:active {
+    background-color: #0056b3; /* 버튼 클릭 시 배경 색상 변경 */
+}
+#inputForm button:hover {
+    background: #0056b3;
+}
+
+#footer {
+    text-align: center;
+}
+
+#footer #menu {
+    margin: 10px 0;
+}
+
+#checkInput {
+    color: red;
+    font-size: 12px;
+    margin-top: -3px;
+    margin-bottom: 8px;
+}
+h1:hover {
+	cursor: pointer;
+	color: #0056b3;
+}

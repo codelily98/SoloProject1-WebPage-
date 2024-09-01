@@ -1,0 +1,30 @@
+CREATE TABLE USER_STATUS (
+    USERID VARCHAR2(20) PRIMARY KEY,
+    USERPW VARCHAR2(30) NOT NULL,
+    USERNAME VARCHAR2(20) NOT NULL,
+    USERDATE VARCHAR2(8) NOT NULL,
+    GENDER CHAR(1) DEFAULT 'M' CHECK(GENDER IN('M', 'F'))
+);
+
+CREATE SEQUENCE POST_NO NOCACHE;
+
+CREATE TABLE POST (
+    NO NUMBER PRIMARY KEY,
+    USERID VARCHAR2(20) NOT NULL,
+    TITLE VARCHAR2(1000) NOT NULL,
+    POST_CONTENT VARCHAR2(3000),
+    LOGTIME DATE,
+    FOREIGN KEY(USERID) REFERENCES USER_STATUS(USERID)
+);
+
+select * from user_status;
+select * from post;
+
+drop table USER_STATUS purge;
+drop table POST purge;
+drop sequence post_no;
+
+commit;
+
+delete from post where no = '1';
+UPDATE user_status SET userPw = '1234' WHERE userId = 'user2';

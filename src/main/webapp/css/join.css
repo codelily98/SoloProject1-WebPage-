@@ -1,0 +1,266 @@
+@charset "UTF-8";
+
+/* 기본적인 스타일 초기화 */
+body, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    list-style: none;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 40px;
+    unicode-bidi: isolate;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    unicode-bidi: isolate;
+}
+
+a {
+    text-decoration: none;
+    color: #2E2E2E;
+    padding: 0 5px;
+}
+
+a:hover {
+    color: #81BEF7;
+}
+
+table {
+    border-collapse: collapse; /* border-collapse: 0을 border-collapse: collapse로 수정 */
+    border-spacing: 0;
+}
+
+body {
+    color: #2E2E2E;
+    font-family: Malgun Gothic, '맑은 고딕', Helvetica, sans-serif;
+    background-color: #f4f4f4; /* 전체 배경 색상 추가 */
+}
+
+form {
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    height: 100%;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
+
+button, input, select, textarea {
+    border-radius: 6px; /* 둥근 모서리 적용 */
+    border: 2px solid #81BEF7; /* 버튼과 입력 필드의 테두리 색상 통일 */
+    background: none;
+    appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 6px 0;
+    border-radius: 6px; /* 둥근 모서리 적용 */
+    border: 2px solid #007bff;
+    font-size: 13px;
+    line-height: 18px;
+    color: #929294;
+    text-align: center;
+}
+
+input {
+    text-rendering: auto;
+    color: fieldtext;
+    font-size: 16px; /* 글자 크기 통일 */
+    line-height: 22px; /* 줄 높이 통일 */
+    padding: 10px; /* 패딩 추가 */
+    background-color: #fff; /* 배경 색상 추가 */
+}
+
+.input {
+    color: black;
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    width: 100%;
+    font-size: 16px; /* 글자 크기 통일 */
+    line-height: 22px; /* 줄 높이 통일 */
+    background: none;
+    padding-left: 1em;
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+}
+/* JOIN 페이지 스타일 */
+body {
+	display: flex;
+    justify-content: center;
+    align-items: center;	
+    height: 100vh;
+}
+#wrap {
+    width: 90%;
+    max-width: 800px; /* 최대 폭 설정 */
+    padding: 20px; /* 내부 여백 추가 */
+    background-color: #fff; /* 배경 색상 추가 */
+    border-radius: 6px; /* 둥근 모서리 설정 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
+    justify-content: center;
+    align-items: center;
+}
+
+#joinform {
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#joinIdPw, #joinUser {
+    margin-top: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+#inputId::after, #inputPw::after, #inputName::after, #inputDate::after, #genderwrap::after {
+    border-color: rgba(108, 108, 110, .6);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+    content: '';
+}
+
+#inputId, #inputPw, #inputName, #inputDate, #genderwrap {
+    margin-top: -3px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box;
+    max-width: 100%;
+    min-height: 50px;
+}
+
+#inputId::before, #genderwrap::before {
+    position: absolute;
+    top: 10px;
+    left: 9px;
+    content: '';
+}
+
+#inputPw::before {
+    background-position: -310px 0;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
+
+#gender {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 0;
+}
+
+/* 라디오 버튼 관련 스타일 */
+.radioItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* 각 라디오 항목이 부모 요소의 절반을 차지 */
+    margin-bottom: 10px;
+}
+
+.radioItem input[type="radio"] {
+    display: none; /* 실제 라디오 버튼은 숨김 */
+}
+
+.radioItem label {
+    display: inline-block;
+    background-color: white;
+    color: #929294;
+    border: 2px solid #81BEF7;
+    text-align: center;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.radioItem input[type="radio"]:checked + label {
+    background-color: #007bff; /* 선택된 라디오 버튼 배경색 */
+    color: white; /* 선택된 라디오 버튼 글자색 */
+    border-color: #007bff; /* 선택된 라디오 버튼 테두리색 */
+}
+
+#btnsubmit, #btnexit {
+    flex: none;
+    margin-bottom: 2em;
+}
+
+.joinbtn, .exitbtn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 6px; /* 둥근 모서리 적용 */
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.joinbtn {
+    background-color: #007bff;
+    transition: background 0.3s;
+}
+
+.exitbtn {
+    margin-top: -2em;
+    background-color: #6c757d;
+    transition: background 0.3s;
+}
+
+.joinbtn:hover {
+    background: #0056b3;
+}
+.exitbtn:hover {
+	background: #545b62;
+}
+
+#checkInput1, #checkInput2 {
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 0;
+    padding-left: 1em;
+    color: red;
+}
+
+#checkInput2 {
+	margin-top: -2em;
+	margin-bottom: 1em;
+}
+
+h1:hover {
+	cursor: pointer;
+	color: #0056b3;
+}

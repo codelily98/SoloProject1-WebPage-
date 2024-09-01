@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLily: 회원 정보</title>
+    <link rel="stylesheet" href="../css/userinfo.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="container">
+            <div id="userinfo_detail">
+                <h1>회원 정보</h1>
+                <div id="userinfo_box">
+                    <div class="userinfo_row">
+                        <span class="userinfo_label">아이디</span>
+                        <span id="userId"></span>
+                    </div>
+                    <div class="userinfo_row">
+                        <span class="userinfo_label">이름</span>
+                        <span id="userName"></span>
+                    </div>
+                    <div class="userinfo_row">
+                        <span class="userinfo_label">생년월일</span>
+                        <span id="userDate"></span>
+                    </div>
+                    <div class="userinfo_row">
+                        <span class="userinfo_label">성별</span>
+                        <span id="gender"></span>
+                    </div>
+                </div>
+                <div id="btnwrap">
+                    <button id="editInfo">정보 수정</button>
+                    <button id="exit">나가기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $.ajax({
+        url: '../jsp/userinfo.jsp',
+        method: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            $('#userId').text(data.userId);
+            $('#userName').text(data.userName);
+            $('#userDate').text(formatDate(data.userDate));  // 날짜 형식 변환
+            $('#gender').text(data.gender);
+        },
+        error: function(e) {
+            console.log(e);
+            alert('회원 정보를 불러오는 중 오류가 발생했습니다.');
+        }
+    });
+
+    $('#editInfo').click(function() {
+    	let userId = sessionStorage.getItem('userId');
+        
+        // 정보 수정 페이지로 이동하며 로그인 정보를 쿼리 매개변수로 전달
+        let url = './useredit.html?userId=' + encodeURIComponent(userId);
+        window.location.href = url;
+    });
+
+    $('#exit').click(function() {
+        window.location.href = './index.html';
+    });
+});
+
+//날짜를 '19981110' -> '1998.11.10' 형식으로 변환하는 함수
+function formatDate(dateStr) {
+    if (dateStr.length === 8) {
+        var year = dateStr.substring(0, 4);
+        var month = dateStr.substring(4, 6);
+        var day = dateStr.substring(6, 8);
+        return year + '.' + month + '.' + day;
+    }
+    return dateStr;  // 예상치 못한 형식의 경우 원본 반환
+}
+</script>
+</body>
+</html>

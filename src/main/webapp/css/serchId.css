@@ -1,0 +1,119 @@
+@charset "UTF-8";
+
+body {
+    background-color: #f4f4f4;
+    color: #2E2E2E;
+    font-family: Malgun Gothic, '맑은 고딕', Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#wrap {
+	width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container {
+    width: 100%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#container h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#inputForm {
+    border: 3px solid #81BEF7;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#inputForm label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#inputForm input {
+    margin-bottom: 15px;
+    border: 2px solid #007bff;
+    width: calc(100% - 20px);
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+#inputForm button[type="submit"] {
+    background-color: #007bff;
+    border: 2px solid #007bff;
+    color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#inputForm button[type="submit"]:hover {
+    background: #0056b3;
+}
+
+#result button, #inputForm button[type="button"] {
+	background-color: #6c757d;
+    border: 2px solid #6c757d;
+    color: #fff;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#result button:hover, #inputForm button[type="button"]:hover {
+    background: #545b62;
+}
+
+h1:hover {
+	cursor: pointer;
+	color: #0056b3;
+}
+
+p {
+	text-align: center;
+}
+
+#checkInput {
+	font-size: 12px;
+	color: red;
+	margin-bottom: 0.5em;
+    text-align: center;
+}
+#result {
+	text-align: center;
+	margin: 1em auto;
+}
+
+#result p {
+    text-align: center;
+    font-size: 18px;
+}
+#result strong {
+	color: #0056b3;
+}

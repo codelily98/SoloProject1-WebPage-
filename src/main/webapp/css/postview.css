@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+/* 기본적인 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Malgun Gothic', '맑은 고딕', Helvetica, sans-serif;
+    color: #2E2E2E;
+    line-height: 1.6;
+    background-color: #f4f4f4; /* 배경 색상 */
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+#wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin: 2em auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#post_detail {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+#post_title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#post_meta {
+	display: flex;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+    margin-top: 0.5em;
+}
+
+#insertUserId {
+	width: 50%;
+	float: left;
+}
+
+#insertLogtime {
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+
+#post_content {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    white-space: pre-wrap; /* 줄바꿈 및 공백 유지 */
+}
+
+#post_actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+#edit_post {
+    background: #007bff;
+    color: #fff;
+    border: 2px solid #007bff;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-top: 1em;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+#back_to_list, #delete_post {
+    background: #6c757d;
+    color: #fff;
+    border: 2px solid #6c757d;
+    border-radius: 6px;
+    padding: 10px 20px;
+    margin-top: 1em;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#edit_post:hover {
+    background: #0056b3;
+}
+
+#back_to_list:hover, #delete_post:hover {
+	background: #545b62;
+}
+
+hr {
+	margin-bottom: 0.5em;
+	margin-top: 0.5em;
+}
+#insertNo, input[type="hidden"]{
+	display: none;
+}

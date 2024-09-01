@@ -1,0 +1,105 @@
+/* write.css */
+/* 기본적인 리셋 및 박스 모델 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체 페이지 설정 */
+body {
+    font-family: Malgun Gothic, '맑은 고딕', Helvetica, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* 페이지의 주요 컨테이너 */
+#wrap {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+	align-items: center;
+}
+
+/* 제목 스타일 */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* 폼 스타일 */
+#contentForm {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 입력 필드와 텍스트 영역 스타일 */
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* 텍스트 영역 스타일 */
+textarea {
+    height: 150px;
+    resize: vertical;
+}
+
+/* 버튼 스타일 */
+input[type="submit"], input[type="button"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    transition: background 0.3s;
+}
+
+input[type="button"] {
+    background-color: #6c757d;
+    transition: background 0.3s;
+}
+
+/* 버튼 호버 효과 */
+input[type="submit"]:hover {
+    background: #0056b3;
+}
+input[type="button"]:hover {
+	background: #545b62;
+}
+
+/* 숨겨진 입력 필드 스타일 */
+input[type="hidden"] {
+    display: none;
+}
+
+/* 사용자 정보 스타일 */
+#insertuserId {
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    color: #555;
+}
+.blind {
+	display: none;
+}

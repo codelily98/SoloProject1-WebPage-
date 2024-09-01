@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLily: 비밀번호 찾기</title>
+    <link rel="stylesheet" href="../css/serchPw.css">
+</head>
+<body>
+    <div id="wrap">
+        <div id="container">
+            <h1>Code Lily</h1>
+            <h2>비밀번호 찾기</h2>
+            <form id="serchPwForm">
+                <div id="inputForm">
+                    <label for="userId">아이디</label>
+                    <input type="text" name="userId" id="userId" placeholder="아이디">
+                    <label for="userName">이름</label>
+                    <input type="text" name="userName" id="userName" placeholder="이름">
+                    <label for="userDate">생년월일</label>
+                    <input type="text" name="userDate" id="userDate" placeholder="생년월일">
+                    <div id="checkInput"></div>
+                    <button type="submit">비밀번호 찾기</button>
+                    <div id="result"></div>
+                </div>
+            </form>
+            <div id="footer">
+                <small>Copyrights © 2024 CodeLily</small>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script type="text/javascript">
+$(function() {
+    $('#serchPwForm').submit(function(event) {
+        event.preventDefault(); // 폼 제출 기본 동작 막기
+
+        let userId = $('#userId').val().trim();
+        let userName = $('#userName').val().trim();
+        let userDate = $('#userDate').val().trim();
+
+        if (!userId) {
+            $('#checkInput').text("아이디를 입력하세요");
+            return false;
+        }
+
+        if (!userName) {
+            $('#checkInput').text("이름을 입력하세요");
+            return false;
+        }
+
+        if (!userDate) {
+            $('#checkInput').text("생년월일을 입력하세요");
+            return false;
+        } else if (!/^\d{8}$/.test(userDate)) { // 8자리 숫자인지 확인
+            $('#checkInput').text("생년월일은 8자리 숫자 형식으로 입력하세요");
+            return false;
+        } 
+
+        $('#checkInput').text(""); // 메시지 초기화
+
+        $.ajax({
+            url: '../jsp/serchPw.jsp',
+            type: 'POST', // 폼의 method와 일치
+            data: {
+                userId: userId,
+                userName: userName,
+                userDate: userDate
+            },
+            dataType: 'json',
+            success: function(response) {
+                if (response.status === 'success') {
+                    $('#result').html('비밀번호는 <strong>' + response.userPw + '</strong> 입니다.');
+                    // 버튼 텍스트와 타입 변경
+                    $('button[type="submit"]').replaceWith('<button type="button" id="loginButton">로그인으로 이동</button>');
+                } else {
+                    $('#result').html('일치하는 회원정보가 없습니다.');
+                }
+            },
+            error: function(e) {
+                console.log(e);
+            }
+        });
+    });
+
+    // 로그인 버튼 클릭 시 페이지 이동
+    $(document).on('click', '#loginButton', function() {
+        window.location.href = './login.html'; // 로그인 페이지 URL
+    });
+
+    // 홈 버튼 클릭 시 페이지 이동
+    $('h1').on('click', function() {
+        window.location.href = './index.html';
+    });
+});
+</script>
+</body>
+</html>
