@@ -51,10 +51,12 @@ $(function() {
         data: { no: postId },
         dataType: 'json',
         success: function(data) {
+        	let formattedLogtime = formatLogtime(data.logtime);
+        	
             $("#insertNo").html(postId); // 직접 텍스트로 넣기
             $('#insertPostTitle').text(data.title);
             $('#insertUserId').text('작성자: ' + data.userId);
-            $('#insertLogtime').text('작성일: ' + data.logtime);
+            $('#insertLogtime').text('작성일: ' + formattedLogtime);
             $('#insertContent').html(data.post_content);
         },
         error: function(e) {
@@ -105,6 +107,22 @@ $(function() {
         window.location.href = './editpost.html?no=' + postId;
     });
 });
+
+//날짜와 시간을 '2024-09-01 15:19:59.0' 형식에서 '2024년 09월 01일 15:19:59' 형식으로 변환하는 함수
+function formatLogtime(logtime) {
+    if (!logtime) return '';
+
+    // 밀리초 제거
+    let formattedDateTime = logtime.split('.')[0];
+    
+    // 'YYYY-MM-DD HH:MM:SS' 형식으로 변환
+    let [datePart, timePart] = formattedDateTime.split(' ');
+    let [year, month, day] = datePart.split('-');
+    let [hours, minutes, seconds] = timePart.split(':');
+
+    // 포맷팅된 문자열 생성
+    return `${year}년 ${month}월 ${day}일 ${hours}:${minutes}:${seconds}`;
+}
 </script>
 </body>
 </html>

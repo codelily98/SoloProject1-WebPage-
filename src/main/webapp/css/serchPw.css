@@ -141,3 +141,8 @@ p {
 #result strong {
 	color: #0056b3;
 }
+
+#footer {
+	margin-top: 0.5em;
+	text-align: center;
+}
